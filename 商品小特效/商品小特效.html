@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>左右轮播</title>
+    <style>
+        main{
+            width:180px;
+            height:150px;
+            margin:50px auto;
+            position: relative;
+            overflow: hidden;
+            border:solid 1px gray;
+        }
+        div{
+            width:180px;
+            height:150px;
+            position: absolute;
+            /*padding:10px;*/
+            text-align: center;
+            left:180px;
+        }
+        p{
+            display: block;
+            background:darkgreen;
+            width:180px;
+            margin:0;
+            position: absolute;
+            bottom:-30px;
+            height:30px;
+            line-height:30px;
+            text-align: center;
+        }
+        .pic1{
+            left:0px;
+            animation: fadeIn 0.5s ;
+        }
+
+        .font1{
+            bottom:0px;
+            animation:Up 0.5s;
+        }
+        .font2{
+            /*bottom:0px;*/
+            animation:Down 0.5s;
+        }
+
+        .pic2{
+
+            animation: bounceOut 0.5s ;
+        }
+        @keyframes fadeIn {
+            from{left:180px;}
+            to{left:0px;}
+        }
+        @keyframes bounceOut {
+            from{left:0px;}
+            to{left:180px;}
+        }
+        @keyframes Up {
+            from{bottom:-30px;}
+            to{bottom:0px;}
+        }
+        @keyframes Down {
+            from{bottom:0px;}
+            to{bottom:-30px;}
+        }
+    </style>
+</head>
+<body>
+        <main>
+            <div class="pic1"><img src="2_2.jpg" alt="">
+           </div>
+            <div class=""><img src="2_1.jpg" alt=""></div>
+            <p class="font1">2013</p>
+            <p >INSUN/恩裳</p>
+
+        </main>
+        <script>
+
+                var pic = document.querySelectorAll('div');
+                var p = document.querySelectorAll('p')
+                pic[0].onmousemove = function(){
+                    pic[1].className = 'pic1';
+                    p[1].className = 'font1'
+                };
+                pic[1].onmouseout =function(){
+                    pic[1].className ='pic2';
+                    p[1].className = 'font2';
+
+                }
+
+
+        </script>
+</body>
+</html>
